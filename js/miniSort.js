@@ -12,39 +12,8 @@
         var def = {
             'child': 'div',
             'accepterBorder': '2px dashed #2d6409',
-            'succesDropURl': 'galery/sortupdate',
-            'connectionURL': '/index-ajax.php',
+            'succesDropURl': 'test.php',
             'dropAction': function(list, el, index) {//Ф-я выполняется после окончания перетаскивания
-                //собираем новое расположение элементов
-                var ln = $(list).children(def.child).length, i = 0, items = $(list).children(def.child), total = {};
-
-                //console.log($(list));
-                for (; i < ln; i++) {
-                    if (total[items[i].id] === undefined) {
-                        total[items[i].id] = [];
-                        total[items[i].id] = $(items[i]).index();
-                    }
-                    else {
-                        total[items[i].id] = $(items[i]).index();
-                    }
-                }
-                totalData = {
-                    'img': total,
-                    'url': def.succesDropURl
-                };
-                //После того как получили новый набор индексов элементов выполняем запрос
-                //console.log(total);
-                $.ajax({
-                    type: 'POST',
-                    dataType: 'json',
-                    processData: true,
-                    url: def.connectionURL,
-                    data: totalData,
-                    cache: false,
-                    success: function(data) {
-                        console.log(data);
-                    }
-                });
             }
         };
 
