@@ -1,0 +1,9 @@
+#sortContener {
+	width: 500px;
+}
+
+#sortContener div {
+	display: inline-block;
+	margin: 5px;
+	vertical-align: top;
+}
